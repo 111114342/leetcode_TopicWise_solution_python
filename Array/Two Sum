@@ -1,0 +1,9 @@
+class Solution(object):
+    def twoSum(self, arr, target):
+        dict1={}
+        for i in range(len(arr)):
+            if(target-arr[i])in dict1:
+                return [i,dict1[target-arr[i]]]
+            else:
+                dict1[arr[i]]=i
+        return [-1,-1]
