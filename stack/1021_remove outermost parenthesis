@@ -1,0 +1,23 @@
+class Solution:
+    def removeOuterParentheses(self, s: str) -> str:
+        stack=[]
+        count1=0
+        s1=""
+        for i in range(len(s)):
+            if s[i]=='(':
+                count1=count1+1
+                stack.append(s[i])
+            elif s[i]==')':
+                count1=count1-1
+                stack.append(s[i])
+            if count1==0:
+                for i in range(1,len(stack)-1):
+                    s1+=stack[i]
+                stack=[]
+                count1=0
+        return s1
+                
+                
+                    
+            
+            
