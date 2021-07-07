@@ -1,0 +1,25 @@
+class Solution:
+    def check(self,s1,s2):
+        if(s1 is "(" and s2 is ")"):
+            return True
+        elif(s1 is "{" and s2 is"}"):
+            return True
+        elif(s1 is "[" and s2 is "]"):
+            return True
+        return False
+    
+    def minAddToMakeValid(self, s: str) -> int:
+        stack=[]
+        count=0
+        for i in s:
+            if i is'(' or i is "{" or i is "[":
+                stack.append(i)
+            else:
+                if(len(stack)==0):
+                    count=count+1
+                elif self.check(stack.pop(),i) is not True:
+                    count=count+1
+        count+=len(stack)
+        return count
+        
+        
