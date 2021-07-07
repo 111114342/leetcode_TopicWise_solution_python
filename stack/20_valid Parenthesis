@@ -1,0 +1,25 @@
+class Solution:
+    def check(self,s1,s2):
+        if(s1 is "(" and s2 is ")"):
+            return True
+        elif(s1 is "{" and s2 is"}"):
+            return True
+        elif(s1 is "[" and s2 is "]"):
+            return True
+        return False
+    def isValid(self, s: str) -> bool:
+        stack=[]
+        for i in s:
+            if i is'(' or i is "{" or i is "[":
+                stack.append(i)
+            else:
+                if(len(stack)==0):
+                    return False
+                if self.check(stack.pop(),i) is not True:
+                    return False
+        if(len(stack)==0):
+            return True
+        else:
+            return False
+                
+        
